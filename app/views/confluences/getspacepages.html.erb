@@ -1,0 +1,4 @@
+
+<% @response["results"].each do |page| %>
+	<%= link_to page["title"], child_path(page["id"]) %><br>
+<% end %>

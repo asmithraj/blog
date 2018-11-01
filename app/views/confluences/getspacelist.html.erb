@@ -1,0 +1,4 @@
+<% @space_list.each do |space| %>
+	<%= space[0] %>
+	<%= link_to space[1], page_path(space[0]) %><br>
+<% end %>

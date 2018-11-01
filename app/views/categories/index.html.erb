@@ -1,0 +1,27 @@
+<div class="header">
+	<div class="header_title">
+		<h1>All Categories</h1>
+	</div>
+</div>
+<button class="btn btn-new btn-primary"><%= link_to 'new category', new_category_path %></button>
+
+<table class="category-list">
+	<% @category.each do |category| %>
+		<tr>
+			<td class="s-right">
+				<strong><%= link_to category.name , show_all_path(category) %></strong>
+			</td>
+			<td class="s-both">
+				<button class="btn btn-warning btn-action">
+					<%= link_to 'edit', edit_category_path(category)%>
+				</button>
+			</td>
+			<td class="s-both">
+				<button class="btn btn-danger btn-action">
+					<%= link_to 'delete', category_path(category), method: :delete, data: { confirm: 'Are you sure to delete?' } %>
+				</button>
+			</td>
+		</tr>
+	<% end %>
+</table>
+

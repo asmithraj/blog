@@ -1,0 +1,4 @@
+<%= @value %>
+<% @response["results"].each do |page| %>
+	<%= link_to page["title"], pageview_path(page["id"]) %><br>
+<% end %>

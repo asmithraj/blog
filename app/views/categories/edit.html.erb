@@ -1,0 +1,28 @@
+<div class="container-form">
+  	<div class="header">
+    	<div class="header_title">
+      		<h4>Edit category</h4>
+    	</div>
+  	</div>
+  	<% if @category.errors.any? %>
+    	<div id="error_explanation">
+      		<h2>
+        		<%= pluralize(@category.errors.count, "error") %> prohibited this article from being saved:
+      		</h2>
+	      	<ul>
+	        	<% @category.errors.full_messages.each do |msg| %>
+	          		<li><%= msg %></li>
+	        	<% end %>
+	      	</ul>
+    	</div>
+  	<% end %>
+  	<%= form_for :category, url: category_path(@category), method: :patch do |f|%>
+  		<p>
+  			<%= f.label :name %><br>
+   	 		<%= f.text_field :name, :class=>'input-box' %>
+  		</p>
+  		<p>
+    		<%= f.submit :class=>"submit" %>
+  		</p>
+  	<% end %>
+</div>

@@ -1,0 +1,41 @@
+<% response = JSON.parse(@response) %>
+<% json_array = [] %>
+<% response["results"].each do |obj| %>
+	<!-- first level children -->
+	<% childrens = obj["children"]["page"]["results"] %>
+	
+	<% level_children = [] %>
+	<% if !childrens.empty? %>
+		<% childrens.each do |list| %>
+			<% child_array = [] %>
+			<% if !list["children"]["page"]["results"].empty? %>
+				<% child_array = [] %>
+				<% child = list["children"]["page"]["results"] %>
+				<% child.each do |item| %>
+					<% child_array.push({"id"=>item["id"],"title"=>item["title"], "type"=>item["type"]}) %>
+				<% end %>
+			<% end %>
+			<% level_children.push({"id"=>list["id"],"title"=>list["title"],"type"=>list["type"], "children"=> child_array}) %>
+		<% end %>
+	<% end %>
+
+	<% objects = 
+		{ 
+			"id" => obj["id"], 
+			"title" => obj["title"],
+			"type" => obj["type"],
+			"children" => level_children
+		} 
+	%>
+	<% json_array.push(objects) %>
+<% end %>
+<%= json_array %>
+<% 
+	json_string = json_array.to_json 
+	File.open("confluence", 'w') { |file| file.write(json_string) }
+%>
+
+
+
+
+

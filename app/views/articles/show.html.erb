@@ -1,0 +1,25 @@
+<div class="block-show">
+
+	<h1 clsas="block-show_title"><%= @article.title.capitalize %></h1>
+	<div class="block-show_content">
+		<%= @article.text %>
+	</div>
+
+	<div class="block-show_comments">
+		<h5>Comments</h5>
+		<% if @article.comments.empty? %>
+			<p>no comments added yet</p>
+		<% else %>
+			<%= render @article.comments %>
+		<% end %>
+		<h5>Add a comment:</h5>
+		<%= render 'comments/form' %>
+	</div>
+
+	<%= link_to 'edit', edit_article_path(@article) %> 
+	<!-- if destroy action is defined in article policy  -->
+	<% if policy(@article).destroy? %> |
+		<%= link_to 'delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure to delete?' } %>
+	<% end %>
+</div>
+

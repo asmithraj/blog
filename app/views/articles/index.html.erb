@@ -1,0 +1,36 @@
+<div class="header">
+	<div class="header_title">
+		<h1>Articles</h1>
+	</div>
+</div>
+<div class="action_button">
+	<button class="btn btn-new btn-primary"><%= link_to 'new article', new_article_path %></button>
+	<button class="btn btn-new btn-primary"><%= link_to 'new category', new_category_path %></button>	
+</div>
+
+<div class="row article">
+	<% @articles.each do |article| %>
+		<div class="col-md-3">
+			<div class="article__wrapper">
+				<div class="article__image">
+					<%= link_to image_tag("article_1.jpg", :alt => "article", :class => "article__image" ), article_path(article) %>
+				</div>
+
+				<%= link_to article_path(article), :class => "article__link" do%>
+					<div class="article_content__wrapper">
+						<div class="article__title">
+							<strong><%= article.title.capitalize %></strong>
+						</div>
+						<div class="article__content">
+							<%= article.text.truncate(150, separator: " ") %>
+						</div>				
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+
+
+

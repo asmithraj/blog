@@ -1,0 +1,116 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-fam: 'Niramit', sans-serif;
+$link-col: #212529;
+$default-display: flex;
+$input-color: #6dccf99e;
+$form-container-width: 50%;
+$title-color: #2176af;
+body {
+	font-family: $font-fam;
+}
+
+.container {
+	h1 {
+		color: #2176af;
+		font-weight: bold;
+	}
+	.image-wrapper {
+		position: relative;
+	}
+	.top-nav {
+		display: $default-display;
+		justify-content: center;
+		.img-logo {
+			width: 140px;
+		}
+	}
+	.nav-bar {
+		text-align: center;
+	}
+	.user-section {
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		right: 0px;
+	}
+	padding-top: 20px;
+
+	.link-col{
+		color: $link-col;
+	}
+	.link-hov:hover {
+		text-decoration: none;
+	}
+	.blog-list {
+		width: 100%;
+	}
+	.btn-action {
+		width: 90%;
+	}
+	.btn-new {
+		margin: 10px 0px;
+	}
+	.btn a {
+		color: #ffffff;
+	}
+	.btn a:hover {
+		text-decoration: none;
+	}
+	.s-both {
+		max-width: 300px;
+		
+	}
+	.s-table {
+		width: 100px;
+	}
+	.blog-title, .blog-text, .input-box {
+		width: 100%;
+		border: 1px solid $input-color;
+		border-radius: 12px;
+	}
+	.container-form {
+		width: $form-container-width;
+		margin: 0 auto;
+	}
+	.header_title {
+		margin-top: .5rem;
+		text-align: center;
+	}
+	.block-show_comments {
+		margin-top: 1.5rem;
+	}
+	.container-form-comment  {
+		width: 40%;
+	}
+	.btn {
+		/*border-radius: 24px;*/
+	}
+	.article__image {
+		max-width: 100%;
+	}
+	.article_content__wrapper {
+		padding: 12px;
+		background: #e9ecef;
+	}
+	.article__link {
+		text-decoration: none;
+		color: #332f2f
+	}
+	.action_button {
+		text-align: right;
+	}
+	.submit:hover {
+		cursor: pointer;
+	}
+	.session-form {
+		padding: 20px 0px 20px 0px;
+		.submit {
+			margin: 20px 0px;
+		}
+	}
+
+}
+

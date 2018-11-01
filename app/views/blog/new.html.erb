@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="blog">
+		<div class="page-title">
+			<h1 class="title-heading color g-font">CREATE NEW BLOG POST</h1>
+		</div>	
+		<div class="form-wrapper">
+			<%= form_for :blog do |f| %>
+			  <p class="g-font form-input input-width">
+			    <%= f.label :title %><br>
+			    <%= f.text_field :title %>
+			  </p>
+			 
+			  <p class="g-font form-input input-width">
+			    <%= f.label :text %><br>
+			    <%= f.text_area :text %>
+			  </p>
+			 
+			  <p class="g-font submit-wrapper">
+			    <%= f.submit %>
+			  </p>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+
+
+

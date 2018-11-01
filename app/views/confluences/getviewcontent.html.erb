@@ -1,0 +1,7 @@
+<% response = JSON.parse(@response) %>
+<h1><%= response["title"] %></h1>
+<div class="page-content">
+	<%= response["body"]["styled_view"]["value"].html_safe %>
+</div>
+
+
