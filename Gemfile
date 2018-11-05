@@ -58,4 +58,7 @@ gem 'pundit'
 gem 'rest-client'
 gem 'bigdecimal'
 
+gem 'bower-rails'
+gem 'angular-rails-templates'
+
 

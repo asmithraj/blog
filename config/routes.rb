@@ -8,12 +8,14 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get 'users', to: 'users#index'
   patch '/users/:id', to: 'users#update', as: 'user_update'
-  get '/confluence', to: 'confluences#index'
+  # get '/confluence', to: 'confluences#index'
   get '/confluence/space', to: 'confluences#getspacelist'
   get 'confluence/page/:space_id', to: 'confluences#getspacepages', as: 'page'
   get 'confluence/children/:page_id', to: 'confluences#getchildpages', as: 'child'
   get 'confluence/content/:content_id', to: 'confluences#getviewcontent', as: 'pageview'
   get 'confluence/createjson', to: 'confluences#create_json', as: 'json'
+  get 'confluence/index', to: 'confluences#index', as: 'confluence'
+  get 'confluence/attachment', to: 'confluences#get_attachment', as: 'attachment'
 	
 	resources :articles do
     resources :comments

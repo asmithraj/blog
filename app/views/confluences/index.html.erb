@@ -1,0 +1,22 @@
+<% 	json_space_content = JSON.parse(@file_content) %>
+<%json_space_content %>
+
+<ul id="offcanvasNav">
+	<% json_space_content.each do |item| %>
+		<li class='nav-item' data-toggle='tooltip' data-placement='right' title='Stock Management'>
+		    <a class='nav-link nav-link-collapse collapsed' data-toggle='collapse' href='#collapse<%= item["id"] %>' data-parent='#offcanvasNav'>
+				<%= item["title"] %></span>
+		    </a>
+
+			<ul class='sidenav-second-level collapse' id='collapse<%= item["id"] %>'>
+				<% if item["children"].present?%>
+					<% item["children"].each do |child| %>
+						<li><%= link_to child["title"], pageview_path(child["id"])%></a>
+					<%end%>
+				<%end%>
+		    </ul>
+
+		</li>
+	<% end %>
+</ul>
+
